@@ -30,6 +30,98 @@ import FormSuccessModal from "@/components/form-success-modal"
 // Extended car data with more vehicles
 const allCars = [
   {
+    id: 2,
+    name: "Mercedes-Benz S-Class",
+    image: "/pictures/sclass9.jpeg",
+    features: [
+      { icon: Users, text: "5 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "3.0L V6 Turbo" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "The pinnacle of luxury sedans, offering unparalleled comfort and cutting-edge technology.",
+    gallery: [
+      "/pictures/sclass7.jpeg",
+      "/pictures/sclass8.jpeg",
+      "/pictures/sclass6.jpeg",
+      "/pictures/sclass10.jpeg",
+    ],
+  },
+  {
+    id: 3,
+    name: "Toyota Land Cruiser TXL",
+    image: "/pictures/txl3.jpeg",
+    features: [
+      { icon: Users, text: "7 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "4.4L V8 Twin-Turbo" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "a mid-range, well-equipped SUV with a robust off-road capability, featuring a sleek and sophisticated black paint job, offering both practicality and a stylish presence.",
+    gallery: [
+      "/pictures/txl1.jpeg",
+      "/pictures/txl4.jpeg",
+      "/pictures/txl2.jpeg",
+      "/pictures/txl5.jpeg",
+      "/pictures/txl6.jpeg",
+    ],
+  },
+  {
+    id: 4,
+    name: "Mercedens-Benz V-Class",
+    image: "/pictures/vclass11.jpeg",
+    features: [
+      { icon: Users, text: "5 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "3.0L V6 TFSI" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "Experience luxury and versatility redefined. This spacious MPV offers premium comfort, flexible seating, and advanced technology for family adventures or executive travel.",
+    gallery: [
+      "/pictures/vclass10.jpeg",
+      "/pictures/vclass5.jpeg",
+      "/pictures/vclass6.jpeg",
+      "/pictures/vclass7.jpeg",
+      "/pictures/vclass8.jpeg",
+      "/pictures/vclass9.jpeg",
+    ],
+  },
+  {
+    id: 6,
+    name: "SUV Black Benz",
+    image: "/pictures/sbenz5.jpeg",
+    features: [
+      { icon: Users, text: "5 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "3.0L V6 Turbo" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "Sports car performance meets SUV practicality in this exceptional vehicle.",
+    gallery: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+  },
+  /*{
+    id: 5,
+    name: "Range Rover Vogue",
+    image: "/pictures/range1.jpeg",
+    features: [
+      { icon: Users, text: "5 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "5.0L V8 Supercharged" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "The ultimate expression of luxury and capability, perfect for any terrain.",
+    gallery: [
+      "/pictures/range2.jpeg",
+      "/pictures/range3.jpeg",
+      "/pictures/range4.jpeg",
+    ],
+  },
+  
+   {
     id: 1,
     name: "Mercedes-Benz G-Wagon",
     image: "/pictures/wagon1.jpg",
@@ -47,91 +139,6 @@ const allCars = [
     ],
   },
   {
-    id: 2,
-    name: "Mercedes-Benz S-Class",
-    image: "/pictures/sclass1.jpg",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "3.0L V6 Turbo" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "The pinnacle of luxury sedans, offering unparalleled comfort and cutting-edge technology.",
-    gallery: [
-      "/pictures/sclass2.jpg",
-      "/pictures/sclass3.jpg",
-      "/pictures/sclass4.jpg",
-    ],
-  },
-  {
-    id: 3,
-    name: "Toyota Land Cruiser TXL",
-    image: "/pictures/txl1.jpeg",
-    features: [
-      { icon: Users, text: "7 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "4.4L V8 Twin-Turbo" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "a mid-range, well-equipped SUV with a robust off-road capability, featuring a sleek and sophisticated black paint job, offering both practicality and a stylish presence.",
-    gallery: [
-      "/pictures/txl2.jpeg",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
-    ],
-  },
-  {
-    id: 4,
-    name: "Mercedens-Benz V-Class",
-    image: "/pictures/vclass1.jpeg",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "3.0L V6 TFSI" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "Experience luxury and versatility redefined. This spacious MPV offers premium comfort, flexible seating, and advanced technology for family adventures or executive travel.",
-    gallery: [
-      "/pictures/vclass2.jpeg",
-      "/pictures/vclass3.jpeg",
-      "/pictures/vclass4.jpeg",
-    ],
-  },
-  {
-    id: 5,
-    name: "Range Rover Vogue",
-    image: "/pictures/range1.jpeg",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "5.0L V8 Supercharged" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "The ultimate expression of luxury and capability, perfect for any terrain.",
-    gallery: [
-      "/pictures/range2.jpeg",
-      "/pictures/range3.jpeg",
-      "/pictures/range4.jpeg",
-    ],
-  },
-  {
-    id: 6,
-    name: "SUV Black Benz",
-    image: "/pictures/sbenz1.jpeg",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "3.0L V6 Turbo" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "Sports car performance meets SUV practicality in this exceptional vehicle.",
-    gallery: [
-      "/pictures/sbenz2.jpeg",
-      "/pictures/sbenz3.jpeg",
-      "/pictures/sbenz4.jpeg",
-    ],
-  },
-  {
     id: 7,
     name: "Bentley Bentayga",
     image: "/placeholder.svg?height=400&width=600",
@@ -143,9 +150,9 @@ const allCars = [
     ],
     description: "Handcrafted luxury SUV offering unmatched refinement and bespoke comfort.",
     gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
     ],
   },
   {
@@ -160,10 +167,9 @@ const allCars = [
     ],
     description: "The world's first Super Sport Utility Vehicle, combining luxury with extreme performance.",
     gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
     ],
   },
   {
@@ -178,9 +184,9 @@ const allCars = [
     ],
     description: "The pinnacle of luxury SUVs, offering effortless performance and supreme comfort.",
     gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
     ],
   },
   {
@@ -195,47 +201,11 @@ const allCars = [
     ],
     description: "Italian luxury and performance combined in this distinctive and elegant SUV.",
     gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
     ],
-  },
-  {
-    id: 11,
-    name: "Tesla Model X",
-    image: "/placeholder.svg?height=400&width=600",
-    features: [
-      { icon: Users, text: "7 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "Electric Dual Motor" },
-      { icon: Fuel, text: "Electric" },
-    ],
-    description: "Revolutionary electric SUV with falcon-wing doors and cutting-edge technology.",
-    gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-    ],
-  },
-  {
-    id: 12,
-    name: "Jaguar F-PACE",
-    image: "/placeholder.svg?height=400&width=600",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "3.0L V6 Supercharged" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "British luxury SUV combining performance, style, and practicality in perfect harmony.",
-    gallery: [
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-      "/placeholder.svg?height=600&width=800",
-    ],
-  },
+  },*/
 ]
 
 export default function CarRentalPage() {

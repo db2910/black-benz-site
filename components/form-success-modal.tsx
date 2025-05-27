@@ -71,14 +71,14 @@ export default function FormSuccessModal({ isOpen, onClose, message, isPartialSu
                 className="flex items-center space-x-3 text-yellow-400 hover:text-yellow-300 transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <span>+250 788 123 456</span>
+                <span>+250 788 306 454</span>
               </a>
               <a
                 href="mailto:info@blackbenz.com"
                 className="flex items-center space-x-3 text-yellow-400 hover:text-yellow-300 transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span>info@blackbenz.com</span>
+                <span>blackbenz110@gmail.com</span>
               </a>
             </div>
           </div>

@@ -27,26 +27,9 @@ import {
 
 const cars = [
   {
-    id: 1,
-    name: "Mercedes-Benz G-Wagon",
-    image: "/pictures/wagon1.jpg",
-    features: [
-      { icon: Users, text: "5 Seats" },
-      { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "4.0L V8 Bi-Turbo" },
-      { icon: Fuel, text: "Petrol" },
-    ],
-    description: "The ultimate luxury SUV combining rugged capability with unmatched comfort and style.",
-    gallery: [
-      "/pictures/wagon3.jpg",
-      "/pictures/wagon4.jpg",
-      "/pictures/wagon5.jpg",
-    ],
-  },
-  {
     id: 2,
     name: "Mercedes-Benz S-Class",
-    image: "/pictures/sclass1.jpg",
+    image: "/pictures/sclass9.jpeg",
     features: [
       { icon: Users, text: "5 Seats" },
       { icon: Settings, text: "Automatic" },
@@ -55,15 +38,16 @@ const cars = [
     ],
     description: "The pinnacle of luxury sedans, offering unparalleled comfort and cutting-edge technology.",
     gallery: [
-      "/pictures/sclass2.jpg",
-      "/pictures/sclass3.jpg",
-      "/pictures/sclass4.jpg",
+      "/pictures/sclass7.jpeg",
+      "/pictures/sclass8.jpeg",
+      "/pictures/sclass6.jpeg",
+      "/pictures/sclass10.jpeg",
     ],
   },
   {
     id: 3,
     name: "Toyota Land Cruiser TXL",
-    image: "/pictures/txl1.jpeg",
+    image: "/pictures/txl3.jpeg",
     features: [
       { icon: Users, text: "7 Seats" },
       { icon: Settings, text: "Automatic" },
@@ -72,15 +56,17 @@ const cars = [
     ],
     description: "a mid-range, well-equipped SUV with a robust off-road capability, featuring a sleek and sophisticated black paint job, offering both practicality and a stylish presence.",
     gallery: [
+      "/pictures/txl1.jpeg",
+      "/pictures/txl4.jpeg",
       "/pictures/txl2.jpeg",
-      "/placeholder.svg?height=300&width=400",
-      "/placeholder.svg?height=300&width=400",
+      "/pictures/txl5.jpeg",
+      "/pictures/txl6.jpeg",
     ],
   },
   {
     id: 4,
     name: "Mercedens-Benz V-Class",
-    image: "/pictures/vclass1.jpeg",
+    image: "/pictures/vclass11.jpeg",
     features: [
       { icon: Users, text: "5 Seats" },
       { icon: Settings, text: "Automatic" },
@@ -89,12 +75,32 @@ const cars = [
     ],
     description: "Experience luxury and versatility redefined. This spacious MPV offers premium comfort, flexible seating, and advanced technology for family adventures or executive travel.",
     gallery: [
-      "/pictures/vclass2.jpeg",
-      "/pictures/vclass3.jpeg",
-      "/pictures/vclass4.jpeg",
+      "/pictures/vclass10.jpeg",
+      "/pictures/vclass5.jpeg",
+      "/pictures/vclass6.jpeg",
+      "/pictures/vclass7.jpeg",
+      "/pictures/vclass8.jpeg",
+      "/pictures/vclass9.jpeg",
     ],
   },
   {
+    id: 6,
+    name: "SUV Black Benz",
+    image: "/pictures/sbenz5.jpeg",
+    features: [
+      { icon: Users, text: "5 Seats" },
+      { icon: Settings, text: "Automatic" },
+      { icon: Zap, text: "3.0L V6 Turbo" },
+      { icon: Fuel, text: "Petrol" },
+    ],
+    description: "Sports car performance meets SUV practicality in this exceptional vehicle.",
+    gallery: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+  },
+  /*{
     id: 5,
     name: "Range Rover Vogue",
     image: "/pictures/range1.jpeg",
@@ -111,21 +117,22 @@ const cars = [
       "/pictures/range4.jpeg",
     ],
   },
-  {
-    id: 6,
-    name: "SUV Black Benz",
-    image: "/pictures/sbenz1.jpeg",
+  
+   {
+    id: 1,
+    name: "Mercedes-Benz G-Wagon",
+    image: "/pictures/wagon1.jpg",
     features: [
       { icon: Users, text: "5 Seats" },
       { icon: Settings, text: "Automatic" },
-      { icon: Zap, text: "3.0L V6 Turbo" },
+      { icon: Zap, text: "4.0L V8 Bi-Turbo" },
       { icon: Fuel, text: "Petrol" },
     ],
-    description: "Sports car performance meets SUV practicality in this exceptional vehicle.",
+    description: "The ultimate luxury SUV combining rugged capability with unmatched comfort and style.",
     gallery: [
-      "/pictures/sbenz2.jpeg",
-      "/pictures/sbenz3.jpeg",
-      "/pictures/sbenz4.jpeg",
+      "/pictures/wagon3.jpg",
+      "/pictures/wagon4.jpg",
+      "/pictures/wagon5.jpg",
     ],
   },
   {
@@ -195,7 +202,7 @@ const cars = [
       "/placeholder.svg?height=300&width=400",
       "/placeholder.svg?height=300&width=400",
     ],
-  },
+  },*/
 ]
 
 const tourismAttractions = [
@@ -561,7 +568,7 @@ export default function HomePage() {
               href="/car-rental"
               className="inline-flex items-center px-8 py-4 text-lg font-semibold text-black bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg hover:from-yellow-500 hover:to-yellow-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25"
             >
-              Explore Our Fleet
+              Book A Car
             </Link>
           </div>
         </div>
