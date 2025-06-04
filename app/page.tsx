@@ -1,6 +1,8 @@
 "use client"
 
 import type React from "react"
+import Head from "next/head"
+
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
@@ -432,6 +434,11 @@ export default function HomePage() {
   }
 
   return (
+    <>
+    <Head>
+        <title>Black Benz – Premium Luxury Car Rental</title>
+        <link rel="icon" href="/pictures/logo.jpeg" />
+      </Head>
     <div className={`min-h-screen bg-black page-content ${isLoaded ? "animate-fadeIn" : "opacity-0"}`}>
       {/* Navbar */}
 <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800">
@@ -1211,5 +1218,6 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
+    </>
   )
 }

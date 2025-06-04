@@ -1,79 +1,95 @@
-import { Resend } from "resend"
+// app/lib/sendEmail.ts  (or wherever your helper lives)
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+import { Resend } from "resend";
+
+// Initialize Resend with your API key from env:
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export interface FormData {
-  name: string
-  email: string
-  phone: string
-  selectedCar?: string
-  selectedAttraction?: string
-  preferredDate?: string
-  message: string
-  formType: "car-booking" | "tourism-booking" | "contact"
+  name: string;
+  email: string;
+  phone: string;
+  selectedCar?: string;
+  selectedAttraction?: string;
+  preferredDate?: string;
+  message: string;
+  formType: "car-booking" | "tourism-booking" | "contact";
 }
 
 export async function sendNotificationEmail(data: FormData) {
   try {
-    const subject = getEmailSubject(data.formType)
-    const adminEmailContent = generateAdminEmailContent(data)
+    const subject = getEmailSubject(data.formType);
+    const adminEmailContent = generateAdminEmailContent(data);
+
+    // Pull “from” and “admin” from environment variables:
+    const fromAddress = process.env.FROM_EMAIL!;      // e.g. "Black Benz <contact@blackbenzservices.com>"
+    const adminRecipient = process.env.ADMIN_EMAIL!;  // e.g. "blackbenz110@gmail.com"
 
     const result = await resend.emails.send({
-      from: "Black Benz <noreply@resend.dev>",
-      to: [process.env.ADMIN_EMAIL || "donkyleben@gmail.com"], // Replace with your actual Gmail address
+      from: fromAddress,
+      to: [adminRecipient],
       subject: subject,
       html: adminEmailContent,
-    })
+    });
 
-    return { success: true, data: result }
+    return { success: true, data: result };
   } catch (error) {
-    console.error("Failed to send notification email:", error)
-    return { success: false, error: error instanceof Error ? error.message : "Unknown error" }
+    console.error("Failed to send notification email:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    };
   }
 }
 
 export async function sendConfirmationEmail(data: FormData) {
   try {
-    const subject = getConfirmationSubject(data.formType)
-    const userEmailContent = generateUserEmailContent(data)
+    const subject = getConfirmationSubject(data.formType);
+    const userEmailContent = generateUserEmailContent(data);
+
+    // Use same “from” as notifications, but “to” is user’s own email:
+    const fromAddress = process.env.FROM_EMAIL!;  // e.g. "Black Benz <contact@blackbenzservices.com>"
 
     const result = await resend.emails.send({
-      from: "Black Benz <noreply@resend.dev>",
+      from: fromAddress,
       to: [data.email],
       subject: subject,
       html: userEmailContent,
-    })
+    });
 
-    return { success: true, data: result }
+    return { success: true, data: result };
   } catch (error) {
-    console.error("Failed to send confirmation email:", error)
-    return { success: false, error: error instanceof Error ? error.message : "Unknown error" }
+    console.error("Failed to send confirmation email:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    };
   }
 }
 
 function getEmailSubject(formType: string): string {
   switch (formType) {
     case "car-booking":
-      return "New Car Booking Request - Black Benz"
+      return "New Car Booking Request - Black Benz";
     case "tourism-booking":
-      return "New Tourism Inquiry - Black Benz"
+      return "New Tourism Inquiry - Black Benz";
     case "contact":
-      return "New Contact Form Submission - Black Benz"
+      return "New Contact Form Submission - Black Benz";
     default:
-      return "New Form Submission - Black Benz"
+      return "New Form Submission - Black Benz";
   }
 }
 
 function getConfirmationSubject(formType: string): string {
   switch (formType) {
     case "car-booking":
-      return "Car Booking Request Received - Black Benz"
+      return "Car Booking Request Received - Black Benz";
     case "tourism-booking":
-      return "Tourism Inquiry Received - Black Benz"
+      return "Tourism Inquiry Received - Black Benz";
     case "contact":
-      return "Message Received - Black Benz"
+      return "Message Received - Black Benz";
     default:
-      return "Submission Received - Black Benz"
+      return "Submission Received - Black Benz";
   }
 }
 
@@ -82,15 +98,15 @@ function generateAdminEmailContent(data: FormData): string {
     data.formType === "car-booking"
       ? "Car Booking Request"
       : data.formType === "tourism-booking"
-        ? "Tourism Inquiry"
-        : "Contact Form Submission"
+      ? "Tourism Inquiry"
+      : "Contact Form Submission";
 
   return `
     <!DOCTYPE html>
     <html>
     <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>${formTypeTitle}</title>
     </head>
     <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
@@ -103,29 +119,29 @@ function generateAdminEmailContent(data: FormData): string {
           <h1 style="color: #000000; margin: 0; font-size: 24px; font-weight: bold;">Black Benz</h1>
           <p style="color: #000000; margin: 5px 0 0 0; font-size: 14px;">Premium Luxury Experience</p>
         </div>
-        
+
         <!-- Content -->
         <div style="padding: 30px;">
           <h2 style="color: #000000; margin: 0 0 20px 0; font-size: 20px;">${formTypeTitle}</h2>
-          
+
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <h3 style="color: #000000; margin: 0 0 15px 0; font-size: 16px;">Customer Information:</h3>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Name:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.name}</span>
             </div>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Email:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.email}</span>
             </div>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Phone:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.phone}</span>
             </div>
-            
+
             ${
               data.selectedCar
                 ? `
@@ -136,7 +152,7 @@ function generateAdminEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             ${
               data.selectedAttraction
                 ? `
@@ -147,7 +163,7 @@ function generateAdminEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             ${
               data.preferredDate
                 ? `
@@ -158,7 +174,7 @@ function generateAdminEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             ${
               data.message
                 ? `
@@ -172,14 +188,14 @@ function generateAdminEmailContent(data: FormData): string {
                 : ""
             }
           </div>
-          
+
           <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #FBBF24;">
             <p style="margin: 0; color: #92400e; font-size: 14px;">
               <strong>Action Required:</strong> Please contact the customer within 2-4 hours to provide excellent service.
             </p>
           </div>
         </div>
-        
+
         <!-- Footer -->
         <div style="background-color: #000000; padding: 20px; text-align: center;">
           <p style="color: #9ca3af; margin: 0; font-size: 12px;">
@@ -189,7 +205,7 @@ function generateAdminEmailContent(data: FormData): string {
       </div>
     </body>
     </html>
-  `
+  `;
 }
 
 function generateUserEmailContent(data: FormData): string {
@@ -197,15 +213,15 @@ function generateUserEmailContent(data: FormData): string {
     data.formType === "car-booking"
       ? "car booking request"
       : data.formType === "tourism-booking"
-        ? "tourism inquiry"
-        : "message"
+      ? "tourism inquiry"
+      : "message";
 
   return `
     <!DOCTYPE html>
     <html>
     <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Thank You - Black Benz</title>
     </head>
     <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
@@ -218,34 +234,34 @@ function generateUserEmailContent(data: FormData): string {
           <h1 style="color: #000000; margin: 0; font-size: 24px; font-weight: bold;">Black Benz</h1>
           <p style="color: #000000; margin: 5px 0 0 0; font-size: 14px;">Premium Luxury Experience</p>
         </div>
-        
+
         <!-- Content -->
         <div style="padding: 30px;">
           <h2 style="color: #000000; margin: 0 0 20px 0; font-size: 22px;">Thank You, ${data.name}!</h2>
-          
+
           <p style="color: #374151; line-height: 1.6; margin-bottom: 20px;">
             We have successfully received your ${formTypeMessage} and appreciate your interest in Black Benz. 
             Our team will review your submission and contact you shortly to assist with your requirements.
           </p>
-          
+
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
             <h3 style="color: #000000; margin: 0 0 15px 0; font-size: 16px;">Submission Summary:</h3>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Name:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.name}</span>
             </div>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Email:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.email}</span>
             </div>
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Phone:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${data.phone}</span>
             </div>
-            
+
             ${
               data.selectedCar
                 ? `
@@ -256,7 +272,7 @@ function generateUserEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             ${
               data.selectedAttraction
                 ? `
@@ -267,7 +283,7 @@ function generateUserEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             ${
               data.preferredDate
                 ? `
@@ -278,7 +294,7 @@ function generateUserEmailContent(data: FormData): string {
             `
                 : ""
             }
-            
+
             <div style="margin-bottom: 10px;">
               <strong style="color: #374151;">Submission Date:</strong>
               <span style="color: #6b7280; margin-left: 10px;">${new Date().toLocaleDateString("en-US", {
@@ -290,7 +306,7 @@ function generateUserEmailContent(data: FormData): string {
               })}</span>
             </div>
           </div>
-          
+
           <div style="background-color: #ecfdf5; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981; margin-bottom: 20px;">
             <h4 style="color: #065f46; margin: 0 0 10px 0; font-size: 16px;">What happens next?</h4>
             <ul style="color: #047857; margin: 0; padding-left: 20px;">
@@ -300,7 +316,7 @@ function generateUserEmailContent(data: FormData): string {
               <li>We'll help you plan the perfect luxury experience</li>
             </ul>
           </div>
-          
+
           <div style="text-align: center; margin: 30px 0;">
             <p style="color: #6b7280; margin-bottom: 15px;">Need immediate assistance?</p>
             <div style="margin-bottom: 10px;">
@@ -315,14 +331,14 @@ function generateUserEmailContent(data: FormData): string {
             </div>
           </div>
         </div>
-        
+
         <!-- Footer -->
         <div style="background-color: #000000; padding: 20px; text-align: center;">
           <p style="color: #FBBF24; margin: 0 0 10px 0; font-size: 16px; font-weight: bold;">
             Black Benz - Premium Luxury Experience
           </p>
           <p style="color: #9ca3af; margin: 0; font-size: 12px;">
-          Remera Airport Road,KN 206 st | We value the time and quality of travel
+            Remera Airport Road, KN 206 St | We value the time and quality of travel
           </p>
           <div style="margin-top: 15px;">
             <a href="https://instagram.com" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Instagram</a>
@@ -333,5 +349,5 @@ function generateUserEmailContent(data: FormData): string {
       </div>
     </body>
     </html>
-  `
+  `;
 }
