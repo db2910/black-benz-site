@@ -428,7 +428,7 @@ export default function HomePage() {
 
   const currentCar = cars[currentCarIndex]
 
-  // Show loading screen
+  // Show loading screen as loading
   if (isLoading) {
     return <LoadingScreen onLoadingComplete={handleLoadingComplete} />
   }
@@ -436,7 +436,7 @@ export default function HomePage() {
   return (
     <>
     <Head>
-        <title>Black Benz – Premium Luxury Car Rental</title>
+        <title>Black Benz – Premium Luxury Car Rentals</title>
         <link rel="icon" href="/pictures/logo.jpeg" />
       </Head>
     <div className={`min-h-screen bg-black page-content ${isLoaded ? "animate-fadeIn" : "opacity-0"}`}>
