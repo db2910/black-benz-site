@@ -341,9 +341,8 @@ function generateUserEmailContent(data: FormData): string {
             Remera Airport Road, KN 206 St | We value the time and quality of travel
           </p>
           <div style="margin-top: 15px;">
-            <a href="https://instagram.com" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Instagram</a>
-            <a href="https://facebook.com" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Facebook</a>
-            <a href="https://twitter.com" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Twitter</a>
+            <a href="https://www.instagram.com/black_benz_services/" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Instagram</a>
+            <a href="https://x.com/BlackBenzServic" style="color: #FBBF24; text-decoration: none; margin: 0 10px;">Twitter</a>
           </div>
         </div>
       </div>

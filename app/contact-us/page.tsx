@@ -124,11 +124,9 @@ export default function ContactUsPage() {
       {/* Social + Hamburger */}
       <div className="flex items-center space-x-4">
         {/* all four social icons */}
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Instagram size={20}/></a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Facebook size={20}/></a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Twitter size={20}/></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Linkedin size={20}/></a>
-
+        <a href="https://www.instagram.com/black_benz_services/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Instagram size={20}/></a>
+        <a href="https://x.com/BlackBenzServic" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 hover:scale-110 transition-all duration-300"><Twitter size={20}/></a>
+        
         {/* hamburger on small screens */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -488,36 +486,21 @@ export default function ContactUsPage() {
                 <h4 className="text-lg font-medium text-white mb-3">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/black_benz_services/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-yellow-400 transition-colors"
                   >
                     <Instagram size={20} />
                   </a>
+                  
                   <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-yellow-400 transition-colors"
-                  >
-                    <Facebook size={20} />
-                  </a>
-                  <a
-                    href="https://twitter.com"
+                    href="https://x.com/BlackBenzServic"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-yellow-400 transition-colors"
                   >
                     <Twitter size={20} />
-                  </a>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-yellow-400 transition-colors"
-                  >
-                    <Linkedin size={20} />
                   </a>
                 </div>
               </div>
