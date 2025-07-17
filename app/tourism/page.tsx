@@ -690,7 +690,7 @@ export default function TourismPage() {
         {/* Sub-Footer */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-gray-500 text-sm">Website by Don Beni</p>
+            <p className="text-gray-500 text-sm">Website by CRYPTO THEMES LTD</p>
             <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Black Benz. All rights reserved.</p>
           </div>
         </div>
